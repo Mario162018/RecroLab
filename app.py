@@ -2,39 +2,43 @@ import customtkinter as ctk
 from tkinter import messagebox
 from functools import partial
 
-from modelo import (catalogo_inicial, agregar, total_carrito,
-                     sugerir_pares, cantidad_en_carrito)
+from modelo import (catalogo_inicial, agregar, confirmar,
+                     total_carrito, sugerir_pares, cantidad_en_carrito)
 
 
 class Aplicacion:
     def __init__(self):
         self.productos = catalogo_inicial()
         self.carrito = []
+        self.ventas = []
 
         ctk.set_appearance_mode("dark")
         ctk.set_default_color_theme("blue")
 
         self.ventana = ctk.CTk()
-        self.ventana.title("RecreoLab | Primera etapa")
-        self.ventana.geometry("1050x680")
-        self.ventana.minsize(950, 620)
+        self.ventana.title("RecreoLab | Demostración escolar")
+        self.ventana.geometry("1050x700")
+        self.ventana.minsize(950, 640)
         self.ventana.grid_columnconfigure(0, weight=1)
         self.ventana.grid_rowconfigure(1, weight=1)
 
-        encabezado = ctk.CTkLabel(self.ventana,
-            text="🏪 RecreoLab",
-            font=("Arial", 26, "bold"))
-        encabezado.grid(row=0, column=0, padx=20, pady=(16, 0),
-                         sticky="w")
+        titulo = ctk.CTkLabel(self.ventana,
+            text="🏪 RecreoLab · ¿Qué comprás con tu presupuesto?",
+            font=("Arial", 24, "bold"))
+        titulo.grid(row=0, column=0, padx=16, pady=12)
 
         self.tabs = ctk.CTkTabview(self.ventana)
-        self.tabs.grid(row=1, column=0, padx=16, pady=16,
+        self.tabs.grid(row=1, column=0, padx=16, pady=8,
                         sticky="nsew")
         self.tabs.add("Kiosco")
         self.tabs.add("Presupuesto")
 
         self.crear_kiosco()
         self.crear_presupuesto()
+
+        self.resumen = ctk.CTkLabel(self.ventana, text="",
+            font=("Arial", 13, "bold"), text_color="#64b5f6")
+        self.resumen.grid(row=2, column=0, pady=10)
 
         self.refrescar()
 
@@ -78,15 +82,25 @@ class Aplicacion:
         separador.grid(row=2, column=0, padx=12, pady=(0, 8),
                         sticky="ew")
 
-        acciones = [("↩ Quitar última unidad", self.quitar),
-                    ("🗑 Vaciar carrito", self.vaciar)]
-        for fila, (texto, accion) in enumerate(acciones, start=3):
-            boton = ctk.CTkButton(compra, text=texto,
-                command=accion, height=36,
-                fg_color="transparent", border_width=1,
-                text_color=("gray10", "gray90"))
-            boton.grid(row=fila, column=0, padx=12, pady=5,
-                       sticky="ew")
+        boton_quitar = ctk.CTkButton(compra,
+            text="↩ Quitar última unidad",
+            command=self.quitar, height=36,
+            fg_color="transparent", border_width=1,
+            text_color=("gray10", "gray90"))
+        boton_quitar.grid(row=3, column=0, padx=12, pady=5, sticky="ew")
+
+        boton_vaciar = ctk.CTkButton(compra, text="🗑 Vaciar carrito",
+            command=self.vaciar, height=36,
+            fg_color="transparent", border_width=1,
+            text_color=("gray10", "gray90"))
+        boton_vaciar.grid(row=4, column=0, padx=12, pady=5, sticky="ew")
+
+        boton_vender = ctk.CTkButton(compra,
+            text="✔ Confirmar venta simulada",
+            command=self.vender, height=40,
+            fg_color="#2e7d32", hover_color="#1b5e20")
+        boton_vender.grid(row=5, column=0, padx=12, pady=(10, 5),
+                           sticky="ew")
 
     def crear_presupuesto(self):
         panel = self.tabs.tab("Presupuesto")
@@ -105,7 +119,7 @@ class Aplicacion:
         aviso.grid(row=1, column=0, padx=12, pady=6)
 
         self.presupuesto = ctk.CTkEntry(panel,
-            placeholder_text="Pesos enteros, sin puntos: 1500",
+            placeholder_text="Pesos enteros, sin puntos: 2000",
             height=36)
         self.presupuesto.grid(row=2, column=0, padx=12, pady=8,
                                sticky="ew")
@@ -129,6 +143,9 @@ class Aplicacion:
         for widget in self.catalogo.winfo_children():
             widget.destroy()
 
+        # Actividad B: semáforo con colores. El estado (y su color)
+        # depende de producto.stock, que solo cambia al confirmar
+        # una venta simulada (agregar() no lo modifica).
         for fila, producto in enumerate(self.productos):
             estado = "Disponible"
             if producto.stock == 0:
@@ -138,24 +155,45 @@ class Aplicacion:
 
             icono = {"Disponible": "✅", "Reponer": "⚠️",
                       "Agotado": "❌"}[estado]
-            texto = (f"{producto.nombre} · ${producto.precio}\n"
-                     f"Stock: {producto.stock}  {icono} {estado}")
-            boton = ctk.CTkButton(self.catalogo, text=texto,
-                height=64, anchor="w",
-                command=partial(self.agregar_uno, producto.codigo))
-            boton.grid(row=fila, column=0, padx=8, pady=5,
-                       sticky="ew")
 
             if estado == "Agotado":
-                boton.configure(state="disabled",
-                    fg_color="#5c5c5c", hover_color="#5c5c5c")
+                color_fondo = "#5c5c5c"
             elif estado == "Reponer":
-                boton.configure(fg_color="#b5651d",
-                    hover_color="#8a4d15")
+                color_fondo = "#b5651d"
             else:
-                boton.configure(fg_color="#2e7d32",
-                    hover_color="#1b5e20")
+                color_fondo = "#2e7d32"
 
+            tarjeta = ctk.CTkFrame(self.catalogo, fg_color=color_fondo,
+                corner_radius=8)
+            tarjeta.grid(row=fila, column=0, padx=8, pady=5,
+                         sticky="ew")
+            tarjeta.grid_columnconfigure(0, weight=1)
+
+            nombre = ctk.CTkLabel(tarjeta,
+                text=f"{producto.nombre} · ${producto.precio}",
+                font=("Arial", 16, "bold"), anchor="w",
+                text_color="white")
+            nombre.grid(row=0, column=0, padx=14, pady=(10, 2),
+                        sticky="ew")
+
+            estado_label = ctk.CTkLabel(tarjeta,
+                text=f"Stock: {producto.stock}  {icono} {estado}",
+                font=("Arial", 11), anchor="w",
+                text_color="#e8e8e8")
+            estado_label.grid(row=1, column=0, padx=14, pady=(0, 10),
+                              sticky="ew")
+
+            if estado == "Agotado":
+                nombre.configure(text_color="#bbbbbb")
+                estado_label.configure(text_color="#bbbbbb")
+            else:
+                for widget in (tarjeta, nombre, estado_label):
+                    widget.configure(cursor="hand2")
+                    widget.bind("<Button-1>",
+                        partial(self.click_producto, producto.codigo))
+
+        # Actividad C: agrupar el carrito por producto en vez de
+        # repetir una línea por unidad.
         lineas = []
         for producto in self.productos:
             cantidad = cantidad_en_carrito(self.carrito, producto.codigo)
@@ -167,12 +205,17 @@ class Aplicacion:
             else:
                 lineas.append(
                     f"{producto.nombre} × {cantidad} = ${subtotal}")
-        texto_carrito = ("\n".join(lineas) if lineas
-                          else "El carrito está vacío.\n"
-                               "Elegí un producto de la izquierda.")
-        self.escribir(self.detalle, texto_carrito)
+        self.escribir(self.detalle, "\n".join(lineas) if lineas
+            else "El carrito está vacío.\nElegí un producto de la izquierda.")
 
         self.total.configure(text=f"Total: ${total_carrito(self.carrito)}")
+
+        importe = sum(self.ventas)
+        self.resumen.configure(text=f"Ventas de esta sesión: "
+            f"{len(self.ventas)} | Importe vendido: ${importe}")
+
+    def click_producto(self, codigo, event=None):
+        self.agregar_uno(codigo)
 
     def agregar_uno(self, codigo):
         try:
@@ -184,26 +227,48 @@ class Aplicacion:
 
     def quitar(self):
         if self.carrito:
-            producto = self.carrito.pop()
-            producto.stock += 1
+            self.carrito.pop()
         self.refrescar()
 
     def vaciar(self):
-        for producto in self.carrito:
-            producto.stock += 1
         self.carrito.clear()
         self.refrescar()
+
+    def vender(self):
+        if not self.carrito:
+            messagebox.showwarning("Carrito vacío",
+                "Agregá un producto.", parent=self.ventana)
+            return
+
+        acepta = messagebox.askyesno("Confirmar",
+            "¿Registrar esta venta simulada?", parent=self.ventana)
+        if not acepta:
+            return
+
+        try:
+            total = confirmar(self.carrito, self.ventas)
+        except ValueError as error:
+            messagebox.showerror("No se registró", str(error),
+                parent=self.ventana)
+            return
+
+        self.refrescar()
+        self.escribir(self.opciones,
+            "Cambió el stock. Volvé a buscar combinaciones.")
+        messagebox.showinfo("Venta simulada registrada",
+            f"Total: ${total}\nComprobante sin validez fiscal.",
+            parent=self.ventana)
 
     def sugerir(self):
         try:
             texto = self.presupuesto.get().strip()
             presupuesto = int(texto)
-            if presupuesto > 1500:
-                raise ValueError("Usá hasta 1500 pesos.")
+            if presupuesto > 1000000:
+                raise ValueError("Usá hasta 1000000 pesos.")
             opciones = sugerir_pares(self.productos, presupuesto)
         except ValueError:
             messagebox.showwarning("Presupuesto inválido",
-                "Ingresá entre 1 y 1500, sin puntos ni decimales.",
+                "Ingresá entre 1 y 1000000, sin puntos ni decimales.",
                 parent=self.ventana)
             return
 

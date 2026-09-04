@@ -44,10 +44,24 @@ def total_carrito(carrito):
 
 def agregar(productos, carrito, codigo):
     producto = buscar(productos, codigo)
-    if producto.stock <= 0:
+    if cantidad_en_carrito(carrito, codigo) >= producto.stock:
         raise ValueError("No queda stock para agregar otra unidad.")
-    producto.stock -= 1
     carrito.append(producto)
+
+
+def confirmar(carrito, ventas):
+    if not carrito:
+        raise ValueError("El carrito está vacío.")
+    for producto in carrito:
+        cantidad = cantidad_en_carrito(carrito, producto.codigo)
+        if cantidad > producto.stock:
+            raise ValueError("El stock cambió. Revisá el carrito.")
+    total = total_carrito(carrito)
+    for producto in carrito:
+        producto.stock -= 1
+    ventas.append(total)
+    carrito.clear()
+    return total
 
 
 def sugerir_pares(productos, presupuesto):
