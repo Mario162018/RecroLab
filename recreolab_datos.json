@@ -1,0 +1,47 @@
+{
+    "productos": [
+        {
+            "codigo": "A01",
+            "nombre": "Agua",
+            "precio": 1000,
+            "stock": 2
+        },
+        {
+            "codigo": "A02",
+            "nombre": "Jugo",
+            "precio": 1200,
+            "stock": 3
+        },
+        {
+            "codigo": "A03",
+            "nombre": "Alfajor",
+            "precio": 800,
+            "stock": 6
+        },
+        {
+            "codigo": "A04",
+            "nombre": "Galletitas",
+            "precio": 900,
+            "stock": 1
+        },
+        {
+            "codigo": "A05",
+            "nombre": "Barrita",
+            "precio": 700,
+            "stock": 4
+        },
+        {
+            "codigo": "A06",
+            "nombre": "Caramelos",
+            "precio": 300,
+            "stock": 0
+        }
+    ],
+    "ventas": [
+        1000,
+        3400,
+        10200,
+        800,
+        6000
+    ]
+}
