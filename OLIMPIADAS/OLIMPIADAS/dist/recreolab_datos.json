@@ -1,0 +1,493 @@
+{
+    "version": 3,
+    "fecha_guardado": "2026-09-25 10:51:59",
+    "productos": [
+        {
+            "codigo": "A01",
+            "nombre": "Agua",
+            "precio": 1000,
+            "stock": 1,
+            "categoria": "Bebidas",
+            "descripcion": "Agua fresca para el recreo.",
+            "emoji": "💧",
+            "activo": true
+        },
+        {
+            "codigo": "A02",
+            "nombre": "Jugo",
+            "precio": 1200,
+            "stock": 3,
+            "categoria": "Bebidas",
+            "descripcion": "Jugo frutal bien frío.",
+            "emoji": "🧃",
+            "activo": true
+        },
+        {
+            "codigo": "A03",
+            "nombre": "Alfajor",
+            "precio": 800,
+            "stock": 6,
+            "categoria": "Dulces",
+            "descripcion": "Alfajor clásico de chocolate.",
+            "emoji": "🍫",
+            "activo": true
+        },
+        {
+            "codigo": "A04",
+            "nombre": "Galletitas",
+            "precio": 900,
+            "stock": 1,
+            "categoria": "Dulces",
+            "descripcion": "Galletitas crocantes.",
+            "emoji": "🍪",
+            "activo": true
+        },
+        {
+            "codigo": "A05",
+            "nombre": "Barrita",
+            "precio": 700,
+            "stock": 3,
+            "categoria": "Snacks",
+            "descripcion": "Barrita para una merienda rápida.",
+            "emoji": "🍫",
+            "activo": true
+        },
+        {
+            "codigo": "A06",
+            "nombre": "Caramelos",
+            "precio": 300,
+            "stock": 3,
+            "categoria": "Dulces",
+            "descripcion": "Caramelos surtidos.",
+            "emoji": "🍬",
+            "activo": true
+        },
+        {
+            "codigo": "A07",
+            "nombre": "Chips",
+            "precio": 1100,
+            "stock": 8,
+            "categoria": "Snacks",
+            "descripcion": "Papas tipo chips crocantes.",
+            "emoji": "🥔",
+            "activo": true
+        },
+        {
+            "codigo": "A08",
+            "nombre": "Chocolate",
+            "precio": 1300,
+            "stock": 5,
+            "categoria": "Dulces",
+            "descripcion": "Chocolate para compartir.",
+            "emoji": "🍫",
+            "activo": true
+        },
+        {
+            "codigo": "A09",
+            "nombre": "Medialuna",
+            "precio": 1000,
+            "stock": 8,
+            "categoria": "Panadería",
+            "descripcion": "Medialuna recién preparada.",
+            "emoji": "🥐",
+            "activo": true
+        },
+        {
+            "codigo": "A10",
+            "nombre": "Sándwich",
+            "precio": 2000,
+            "stock": 5,
+            "categoria": "Comida",
+            "descripcion": "Sándwich completo para el recreo.",
+            "emoji": "🥪",
+            "activo": true
+        },
+        {
+            "codigo": "A11",
+            "nombre": "Gaseosa",
+            "precio": 1500,
+            "stock": 7,
+            "categoria": "Bebidas",
+            "descripcion": "Bebida gaseosa fría.",
+            "emoji": "🥤",
+            "activo": true
+        },
+        {
+            "codigo": "A12",
+            "nombre": "Papas",
+            "precio": 1200,
+            "stock": 8,
+            "categoria": "Snacks",
+            "descripcion": "Papas clásicas saladas.",
+            "emoji": "🍟",
+            "activo": true
+        },
+        {
+            "codigo": "A13",
+            "nombre": "Cookie",
+            "precio": 950,
+            "stock": 6,
+            "categoria": "Dulces",
+            "descripcion": "Cookie con chips de chocolate.",
+            "emoji": "🍪",
+            "activo": true
+        },
+        {
+            "codigo": "A14",
+            "nombre": "Tostado",
+            "precio": 2200,
+            "stock": 5,
+            "categoria": "Comida",
+            "descripcion": "Tostado caliente de jamón y queso.",
+            "emoji": "🥪",
+            "activo": true
+        },
+        {
+            "codigo": "A15",
+            "nombre": "Limonada",
+            "precio": 1400,
+            "stock": 7,
+            "categoria": "Bebidas",
+            "descripcion": "Limonada fresca.",
+            "emoji": "🍋",
+            "activo": true
+        },
+        {
+            "codigo": "A16",
+            "nombre": "Muffin",
+            "precio": 1100,
+            "stock": 6,
+            "categoria": "Panadería",
+            "descripcion": "Muffin suave de chocolate.",
+            "emoji": "🧁",
+            "activo": true
+        },
+        {
+            "codigo": "A17",
+            "nombre": "Café",
+            "precio": 1300,
+            "stock": 8,
+            "categoria": "Bebidas",
+            "descripcion": "Café caliente.",
+            "emoji": "☕",
+            "activo": true
+        },
+        {
+            "codigo": "A18",
+            "nombre": "Té",
+            "precio": 900,
+            "stock": 8,
+            "categoria": "Bebidas",
+            "descripcion": "Té caliente.",
+            "emoji": "🍵",
+            "activo": true
+        },
+        {
+            "codigo": "A19",
+            "nombre": "Yogur",
+            "precio": 1400,
+            "stock": 6,
+            "categoria": "Bebidas",
+            "descripcion": "Yogur individual.",
+            "emoji": "🥛",
+            "activo": true
+        },
+        {
+            "codigo": "A20",
+            "nombre": "Jugo de naranja",
+            "precio": 1600,
+            "stock": 4,
+            "categoria": "Bebidas",
+            "descripcion": "Jugo de naranja natural.",
+            "emoji": "🍊",
+            "activo": true
+        },
+        {
+            "codigo": "A21",
+            "nombre": "Brownie",
+            "precio": 1500,
+            "stock": 6,
+            "categoria": "Dulces",
+            "descripcion": "Brownie de chocolate.",
+            "emoji": "🍰",
+            "activo": true
+        },
+        {
+            "codigo": "A22",
+            "nombre": "Donut",
+            "precio": 1200,
+            "stock": 7,
+            "categoria": "Dulces",
+            "descripcion": "Donut glaseada.",
+            "emoji": "🍩",
+            "activo": true
+        },
+        {
+            "codigo": "A23",
+            "nombre": "Chocotorta",
+            "precio": 1800,
+            "stock": 4,
+            "categoria": "Dulces",
+            "descripcion": "Porción individual.",
+            "emoji": "🍰",
+            "activo": true
+        },
+        {
+            "codigo": "A24",
+            "nombre": "Mix de frutos secos",
+            "precio": 1700,
+            "stock": 6,
+            "categoria": "Snacks",
+            "descripcion": "Mix energético.",
+            "emoji": "🥜",
+            "activo": true
+        },
+        {
+            "codigo": "A25",
+            "nombre": "Nachos",
+            "precio": 1600,
+            "stock": 7,
+            "categoria": "Snacks",
+            "descripcion": "Nachos crocantes.",
+            "emoji": "🌮",
+            "activo": true
+        },
+        {
+            "codigo": "A26",
+            "nombre": "Pochoclos",
+            "precio": 800,
+            "stock": 9,
+            "categoria": "Snacks",
+            "descripcion": "Pochoclos dulces.",
+            "emoji": "🍿",
+            "activo": true
+        },
+        {
+            "codigo": "A27",
+            "nombre": "Pancho",
+            "precio": 1900,
+            "stock": 6,
+            "categoria": "Comida",
+            "descripcion": "Pancho completo.",
+            "emoji": "🌭",
+            "activo": true
+        },
+        {
+            "codigo": "A28",
+            "nombre": "Hamburguesa",
+            "precio": 2800,
+            "stock": 5,
+            "categoria": "Comida",
+            "descripcion": "Hamburguesa simple.",
+            "emoji": "🍔",
+            "activo": true
+        },
+        {
+            "codigo": "A29",
+            "nombre": "Pizza",
+            "precio": 2500,
+            "stock": 5,
+            "categoria": "Comida",
+            "descripcion": "Porción de pizza.",
+            "emoji": "🍕",
+            "activo": true
+        },
+        {
+            "codigo": "A30",
+            "nombre": "Empanada",
+            "precio": 1400,
+            "stock": 10,
+            "categoria": "Comida",
+            "descripcion": "Empanada al horno.",
+            "emoji": "🥟",
+            "activo": true
+        },
+        {
+            "codigo": "A31",
+            "nombre": "Tarta",
+            "precio": 1800,
+            "stock": 6,
+            "categoria": "Comida",
+            "descripcion": "Porción de tarta.",
+            "emoji": "🥧",
+            "activo": true
+        },
+        {
+            "codigo": "A32",
+            "nombre": "Croissant",
+            "precio": 1500,
+            "stock": 6,
+            "categoria": "Panadería",
+            "descripcion": "Croissant de manteca.",
+            "emoji": "🥐",
+            "activo": true
+        },
+        {
+            "codigo": "A33",
+            "nombre": "Budín",
+            "precio": 1300,
+            "stock": 7,
+            "categoria": "Panadería",
+            "descripcion": "Porción de budín.",
+            "emoji": "🍞",
+            "activo": true
+        },
+        {
+            "codigo": "A34",
+            "nombre": "Medialuna rellena",
+            "precio": 1400,
+            "stock": 5,
+            "categoria": "Panadería",
+            "descripcion": "Medialuna rellena.",
+            "emoji": "🥐",
+            "activo": true
+        },
+        {
+            "codigo": "A35",
+            "nombre": "Pan de queso",
+            "precio": 1000,
+            "stock": 8,
+            "categoria": "Panadería",
+            "descripcion": "Pan de queso horneado.",
+            "emoji": "🧀",
+            "activo": true
+        },
+        {
+            "codigo": "A36",
+            "nombre": "Donut chocolate",
+            "precio": 1400,
+            "stock": 5,
+            "categoria": "Dulces",
+            "descripcion": "Donut cubierta de chocolate.",
+            "emoji": "🍩",
+            "activo": true
+        },
+        {
+            "codigo": "A37",
+            "nombre": "Licuado",
+            "precio": 1800,
+            "stock": 5,
+            "categoria": "Bebidas",
+            "descripcion": "Licuado de fruta.",
+            "emoji": "🥤",
+            "activo": true
+        },
+        {
+            "codigo": "A38",
+            "nombre": "Agua saborizada",
+            "precio": 1200,
+            "stock": 7,
+            "categoria": "Bebidas",
+            "descripcion": "Agua saborizada fría.",
+            "emoji": "💧",
+            "activo": true
+        },
+        {
+            "codigo": "A39",
+            "nombre": "Churros",
+            "precio": 1300,
+            "stock": 7,
+            "categoria": "Dulces",
+            "descripcion": "Churros para la merienda.",
+            "emoji": "🥨",
+            "activo": true
+        },
+        {
+            "codigo": "A40",
+            "nombre": "Combo recreo",
+            "precio": 4200,
+            "stock": 4,
+            "categoria": "Combos",
+            "descripcion": "Combo con bebida, snack y dulce.",
+            "emoji": "🍱",
+            "activo": true
+        }
+    ],
+    "ventas": [
+        1000,
+        3400,
+        10200,
+        800,
+        6000,
+        {
+            "fecha": "2026-09-21 15:01:07",
+            "subtotal": 1000,
+            "descuento": 0,
+            "cupon": "",
+            "total": 1000,
+            "productos": [
+                {
+                    "codigo": "A01",
+                    "nombre": "Agua",
+                    "cantidad": 1,
+                    "precio": 1000,
+                    "subtotal": 1000
+                }
+            ]
+        },
+        {
+            "fecha": "2026-09-21 17:25:49",
+            "subtotal": 700,
+            "descuento": 0,
+            "cupon": "",
+            "total": 700,
+            "productos": [
+                {
+                    "codigo": "A05",
+                    "nombre": "Barrita",
+                    "cantidad": 1,
+                    "precio": 700,
+                    "subtotal": 700
+                }
+            ]
+        },
+        {
+            "fecha": "2026-09-22 15:50:37",
+            "subtotal": 1600,
+            "descuento": 0,
+            "cupon": "",
+            "total": 1600,
+            "productos": [
+                {
+                    "codigo": "A20",
+                    "nombre": "Jugo de naranja",
+                    "cantidad": 1,
+                    "precio": 1600,
+                    "subtotal": 1600
+                }
+            ]
+        },
+        {
+            "fecha": "2026-09-25 10:24:25",
+            "subtotal": 950,
+            "descuento": 0,
+            "cupon": "",
+            "total": 950,
+            "productos": [
+                {
+                    "codigo": "A13",
+                    "nombre": "Cookie",
+                    "cantidad": 1,
+                    "precio": 950,
+                    "subtotal": 950
+                }
+            ]
+        },
+        {
+            "fecha": "2026-09-25 10:24:39",
+            "subtotal": 1300,
+            "descuento": 0,
+            "cupon": "",
+            "total": 1300,
+            "productos": [
+                {
+                    "codigo": "A08",
+                    "nombre": "Chocolate",
+                    "cantidad": 1,
+                    "precio": 1300,
+                    "subtotal": 1300
+                }
+            ]
+        }
+    ]
+}
